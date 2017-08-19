@@ -656,13 +656,10 @@ function Restore-PSModuleToBuild
         # PowerShellGet depends on PackageManagement module, so PackageManagement module will be installed with the PowerShellGet module.
         'PowerShellGet'
         'Microsoft.PowerShell.Archive'
+        'Pester'
     ) -SourceLocation "https://www.powershellgallery.com/api/v2/"
-
-    if($CI.IsPresent)
-    {
-        Restore-GitModule -Destination $modulesDir -Uri 'https://github.com/PowerShell/psl-pester' -Name Pester -CommitSha 'aa243108e7da50a8cf82513b6dd649b653c70b0e'
-    }
 }
+
 function Compress-TestContent {
     [CmdletBinding()]
     param(
